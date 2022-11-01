@@ -5,7 +5,7 @@ def exploitOnly():
     C1 = random.normalvariate(10, 8)
     C2 = random.normalvariate(15, 6)
     C3 = random.normalvariate(12, 5)
-    happiness= 0
+    happiness= C1 + C2 + C3
     if max(C1, C2, C3) == C1:
         for i in range(297):
             happiness += random.normalvariate(10, 8)
