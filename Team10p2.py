@@ -1,7 +1,6 @@
 import random
 
 def exploitOnly():
-      import random
     C1 = random.normalvariate(10, 8)
     C2 = random.normalvariate(15, 6)
     C3 = random.normalvariate(12, 5)
