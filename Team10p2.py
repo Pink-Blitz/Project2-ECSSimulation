@@ -1,7 +1,22 @@
 import random
 
 def exploitOnly():
-    return 2000
+      import random
+    C1 = random.normalvariate(10, 8)
+    C2 = random.normalvariate(15, 6)
+    C3 = random.normalvariate(12, 5)
+    happiness= 0
+    if max(C1, C2, C3) == C1:
+        for i in range(297):
+            happiness += random.normalvariate(10, 8)
+    elif max(C1, C2, C3) == C2:
+        for i in range(297):
+            happiness += random.normalvariate(15, 6)
+    else:
+        if max(C1, C2, C3) == C3:
+            for i in range(297):
+                happiness += random.normalvariate(12, 5)
+    return happiness
 
 def exploreOnly():
     return 3000
