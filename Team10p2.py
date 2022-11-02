@@ -21,7 +21,57 @@ def exploreOnly():
     return 3000
 
 def eGreedy(e:int):
-    return 2500
+    import random
+    c1 = random.normalvariate(10,8)
+    c2 = random.normalvariate(15,6)
+    c3 = random.normalvariate(12,5)
+    c1_list = []
+    c2_list = []
+    c3_list = []
+    sum1 = c1
+    sum2 = c2
+    sum3 = c3
+
+
+    for i in range(297):
+        r = random.random()
+        if (r*100<e):
+            WhichOne = random.randint(1,3)
+            if WhichOne == 1:
+                c1_list.append(c1)
+                c1 = random.normalvariate(10, 8)
+                sum1 = sum(c1_list) / len(c1_list)
+            elif WhichOne == 2:
+                c2_list.append(c2)
+                c2 = random.normalvariate(15, 6)
+                sum2 = sum(c2_list) / len(c2_list)
+            elif WhichOne == 3:
+                c3_list.append(c3)
+                c3 = random.normalvariate(12, 5)
+                sum3 = sum(c3_list)/len(c3_list)
+        else:
+            WhichOne = max(sum1,sum2,sum3)
+            if WhichOne == sum1:
+                    c1_list.append(c1)
+                    c1 = random.normalvariate(10, 8)
+                    sum1 = sum(c1_list) / len(c1_list)
+
+            elif WhichOne == sum2:
+                    c2_list.append(c2)
+                    c2 = random.normalvariate(15, 6)
+                    sum2 = sum(c2_list) / len(c2_list)
+
+            elif WhichOne == sum3:
+                    c3_list.append(c3)
+                    c3 = random.normalvariate(12, 5)
+                    sum3 = sum(c3_list) / len(c3_list)
+
+    best_n_days = 300-((e/100)*300)
+    random_n_days = ((e/3)/100)*300
+    total_happiness = (max(sum1,sum2,sum3)*best_n_days)+(sum1*random_n_days)+(sum2*random_n_days)+(sum3*random_n_days)
+    return total_happiness
+    
+
 
 def simulation(t: int, e: int):
     oitind = 0
@@ -40,7 +90,18 @@ def simulation(t: int, e: int):
     exploit_reg = Optimum_h - oit
     avg_exploitr = Optimum_h - avg_exploit
     print("The average total happiness for exploitOnly for " + str(t) + " trials is " + str(avg_exploit))
-    print("The total expected happiness for exploitOnly is " + str(oit))
+    print("The total expected happiness for exploitOnly is " + str(oit))def eGreedy(e:int):
+    import random
+    c1 = random.normalvariate(10,8)
+    c2 = random.normalvariate(15,6)
+    c3 = random.normalvariate(12,5)
+    c1_list = []
+    c2_list = []
+    c3_list = []
+    sum1 = c1
+    sum2 = c2
+    sum3 = c3
+
     print("The total expected regret for exploitOnly is " + str(exploit_reg))
     print("The average total regret for exploitOnly for " + str(t) + " trials is " + str(avg_exploitr))
     oreind = 0
