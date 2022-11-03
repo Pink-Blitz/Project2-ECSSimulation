@@ -18,7 +18,13 @@ def exploitOnly():
     return happiness
 
 def exploreOnly():
-    return 3000
+    import random
+    happy = 0
+    for i in range(0, 100):
+        happy += random.normalvariate(10, 8)
+        happy += random.normalvariate(15, 6)
+        happy += random.normalvariate(12, 5)
+    return happy
 
 def eGreedy(e:int):
     import random
